@@ -45,7 +45,7 @@ Installation de RESTo
         rm -Rf $RESTO_HOME
 
         # Récupération des sources à jour de RESTo 
-        git clone https://github.com//jjrom/resto.git/ $RESTO_HOME
+        git clone https://github.com/jjrom/resto.git/ $RESTO_HOME
         
         # Positionnement de RESTo sur une version stable pour HyDre
         cd $RESTO_HOME
