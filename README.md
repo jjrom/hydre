@@ -118,7 +118,7 @@ des comptes 'resto', 'sresto' et 'admin' [comme expliqué dans la procédure d'i
 
 Lancez la commande suivante pour ajouter la collection HyDre dans la base de données RESTo
 
-        curl -X POST -F "file[]=@$HYDRE_HOME/installation/Hyde.json" http://admin:nimda@localhost/hydre/
+        curl -X POST -F "file[]=@$HYDRE_HOME/installation/Hydre.json" http://admin:nimda@localhost/hydre/
 
 Note : remplacez 'admin:nimda' par le login et le mot de passe du compte admin définis dans RESTo (cf. étape précédente)
 
@@ -137,7 +137,7 @@ La commande suivante insère un jeu de données de test sur la station virtuelle
         curl -X POST -F "file[]=@$HYDRE_HOME/examples/L_albert.txt" http://admin:nimda@localhost/hydre/hydroweb
 
 ### Mise à jour de la description de la collection
-Toute modification de la description de la collection (i.e. fichier $HYDRE_HOME/installation/Hyde.json) doit être reportée
+Toute modification de la description de la collection (i.e. fichier $HYDRE_HOME/installation/Hydre.json) doit être reportée
 dans la base de données RESTo.
 
 Pour cela executez les commandes suivantes :
@@ -146,5 +146,5 @@ Pour cela executez les commandes suivantes :
         curl --get -X DELETE -d "physical=true" http://admin:nimda@localhost/hydre/hydroweb
         
         # Insertion de la collection modifiée
-        curl -X POST -F "file[]=@$HYDRE_HOME/installation/Hyde.json" http://admin:nimda@localhost/hydre/
+        curl -X POST -F "file[]=@$HYDRE_HOME/installation/Hydre.json" http://admin:nimda@localhost/hydre/
 
