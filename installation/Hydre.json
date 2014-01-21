@@ -1,0 +1,181 @@
+{
+    "name": "hydroweb",
+    "controller": "HyDreController",
+    "status": "public",
+    "createdb": false,
+    "osDescription": {
+        "en": {
+            "ShortName": "Hydroweb",
+            "LongName": "Hydroweb",
+            "Description": "Hydroweb",
+            "Tags": "hydroweb lake river altimetry measure jason ers",
+            "Developper": "J\u00e9r\u00f4me Gasperi",
+            "Contact": "jerome.gasperi@cnes.fr",
+            "Query": "",
+            "Attribution": "CNES/LEGOS - Copyright 2014, All Rights Reserved"
+        },
+        "fr": {
+            "ShortName": "Hydroweb",
+            "LongName": "Hydroweb",
+            "Description": "Hydroweb",
+            "Tags": "hydroweb lac riviere altimetrie mesure jason ers",
+            "Developper": "J\u00e9r\u00f4me Gasperi",
+            "Contact": "jerome.gasperi@cnes.fr",
+            "Query": "",
+            "Attribution": "CNES/LEGOS - Copyright 2014, All Rights Reserved"
+        }
+    },
+    "dbDescription": {
+        "schema": "hydre"
+    },
+    "dictionary_en": {
+        "keywords": {
+            "basin": {
+                "amazon": "amazon",
+                "madera": "madera",
+                "rio negro": "rio negro",
+                "tapajos": "tapajos",
+                "congo": "congo",
+                "marenga": "marenga",
+                "kasai": "kasai",
+                "oubangui": "oubangui",
+                "uele": "uele",
+                "danube": "danube",
+                "dniepr": "dniepr",
+                "ganges": "ganges",
+                "ghaghara": "ghaghara",
+                "brahmaputra": "brahmaputra",
+                "mississipi": "mississipi",
+                "niger": "niger",
+                "benoue": "benoue",
+                "volta": "volta",
+                "nile": "nile",
+                "orinoco": "orinoco",
+                "guaviare": "guaviare",
+                "meta": "meta",
+                "parana": "parana",
+                "yangtse": "yangtse",
+                "yellow river": "yellow river",
+                "weihe": "weihe",
+                "zambeze": "zambeze"
+            },
+            "lake": {
+                "albert": "albert",
+                "argentino": "argentino",
+                "athabasca":"athabasca",
+                "balkhash":"balkhash",
+                "huron":"huron",
+                "ladoga":"ladoga",
+                "malawi":"malawi",
+                "ontario":"ontario"
+            },
+            "river": {
+                "amazon": "amazon",
+                "madera": "madera",
+                "rio negro": "rio negro",
+                "tapajos": "tapajos",
+                "congo": "congo",
+                "marenga": "marenga",
+                "kasai": "kasai",
+                "oubangui": "oubangui",
+                "uele": "uele",
+                "danube": "danube",
+                "dniepr": "dniepr",
+                "ganges": "ganges",
+                "ghaghara": "ghaghara",
+                "brahmaputra": "brahmaputra",
+                "mississipi": "mississipi",
+                "niger": "niger",
+                "benoue": "benoue",
+                "volta": "volta",
+                "nile": "nile",
+                "orinoco": "orinoco",
+                "guaviare": "guaviare",
+                "meta": "meta",
+                "parana": "parana",
+                "yangtse": "yangtse",
+                "yellow river": "yellow river",
+                "weihe": "weihe",
+                "zambeze": "zambeze"
+            }
+        },
+        "translation": {
+            "_river": "River <b>{a:1}<\/b>"
+        }
+    },
+    "dictionary_fr": {
+        "keywords": {
+            "basin": {
+                "amazon": "amazon",
+                "madera": "madera",
+                "rio negro": "rio negro",
+                "tapajos": "tapajos",
+                "congo": "congo",
+                "marenga": "marenga",
+                "kasai": "kasai",
+                "oubangui": "oubangui",
+                "uele": "uele",
+                "danube": "danube",
+                "dniepr": "dniepr",
+                "ganges": "ganges",
+                "ghaghara": "ghaghara",
+                "brahmaputra": "brahmaputra",
+                "mississipi": "mississipi",
+                "niger": "niger",
+                "benoue": "benoue",
+                "volta": "volta",
+                "nile": "nile",
+                "orinoco": "orinoco",
+                "guaviare": "guaviare",
+                "meta": "meta",
+                "parana": "parana",
+                "yangtse": "yangtse",
+                "yellow river": "yellow river",
+                "weihe": "weihe",
+                "zambeze": "zambeze"
+            },
+            "lake": {
+                "albert": "albert",
+                "argentino": "argentino",
+                "athabasca":"athabasca",
+                "balkhash":"balkhash",
+                "huron":"huron",
+                "ladoga":"ladoga",
+                "malawi":"malawi",
+                "ontario":"ontario"
+            },
+            "river": {
+                "amazon": "amazon",
+                "madera": "madera",
+                "rio negro": "rio negro",
+                "tapajos": "tapajos",
+                "congo": "congo",
+                "marenga": "marenga",
+                "kasai": "kasai",
+                "oubangui": "oubangui",
+                "uele": "uele",
+                "danube": "danube",
+                "dniepr": "dniepr",
+                "ganges": "ganges",
+                "ghaghara": "ghaghara",
+                "brahmaputra": "brahmaputra",
+                "mississipi": "mississipi",
+                "niger": "niger",
+                "benoue": "benoue",
+                "volta": "volta",
+                "nile": "nile",
+                "orinoco": "orinoco",
+                "guaviare": "guaviare",
+                "meta": "meta",
+                "parana": "parana",
+                "yangtse": "yangtse",
+                "yellow river": "yellow river",
+                "weihe": "weihe",
+                "zambeze": "zambeze"
+            }
+        },
+        "translation": {
+            "_river": "Fleuve <b>{a:1}<\/b>"
+        }
+    }
+}

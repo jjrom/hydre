@@ -142,8 +142,11 @@ dans la base de données RESTo.
 
 Pour cela executez les commandes suivantes :
 
-        # Suppression de la collection
-        curl --get -X DELETE -d "physical=true" http://admin:nimda@localhost/hydre/hydroweb
+        # Suppression de la collection - connection à la base de données
+        psql -d resto -U postgres << EOF
+        DELETE FROM admin.osdescriptions WHERE collection='hydroweb';
+        DELETE FROM admin.collections WHERE collection='hydroweb';
+        EOF
         
         # Insertion de la collection modifiée
         curl -X POST -F "file[]=@$HYDRE_HOME/installation/Hydre.json" http://admin:nimda@localhost/hydre/
