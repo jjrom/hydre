@@ -49,7 +49,7 @@ Installation de RESTo
         
         # Positionnement de RESTo sur une version stable pour HyDre
         cd $RESTO_HOME
-        git checkout eaa77ab5d87400a732504d128d451489e2520feb
+        git checkout 9cfa72338a13432893e57a3b588c9c8b205895b9
         
         # Suppression du répertoire .git
         rm -Rf $RESTO_HOME/.git $RESTO_HOME/.gitignore
