@@ -54,7 +54,19 @@ class HyDreResourceManager extends ResourceManager {
      * @throws Exception
      */
     public function create($files = array()) {
-
+        
+        if (!$this->dbh) {
+            throw new Exception('Database connection error', 500);
+        }
+        
+        /*
+         * Only authenticated user can post files
+         * TODO - set authorization level within database (i.e. canPost, canPut, canDelete, etc. ?)
+         */
+        if (!$this->Controller->getParent()->checkAuth()) {
+            throw new Exception('Unauthorized', 401);
+        }
+        
         if (!is_array($files)) {
             throw new Exception('Invalid posted file(s)', 500);
         }
