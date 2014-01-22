@@ -72,6 +72,14 @@ Installation de HyDre
         $HYDRE_HOME/installation/hydreInstallDB.sh -g $HYDRE_HOME -s postgres -F
 
 
+Installation de mapshup
+-----------------------
+
+
+        # Compilation et installation de mapshup dans $HYDRE_TARGET/mapshup
+        $HYDRE_HOME/installation/build_mapshup.sh -a -t $HYDRE_TARGET -s $HYDRE_HOME
+
+
 Déploiement
 ===========
 
