@@ -24,6 +24,6 @@ then
     exit 1
 fi
 
-cp -Rf $SRCDIR/src/HyDreController.php $TARGETDIR/resto/controllers/ && echo ' ==> Copy HyDreController to '$TARGETDIR'/resto/controllers/ directory'
-cp -Rf $SRCDIR/src/HydreResourceManager.php $TARGETDIR/resto/modules/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/resto/modules/ directory'
+cp -Rf $SRCDIR/src/resto/HyDreController.php $TARGETDIR/resto/controllers/ && echo ' ==> Copy HyDreController to '$TARGETDIR'/resto/controllers/ directory'
+cp -Rf $SRCDIR/src/resto/HydreResourceManager.php $TARGETDIR/resto/modules/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/resto/modules/ directory'
 

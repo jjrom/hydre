@@ -246,7 +246,7 @@ class HyDreController extends RestoController {
                 throw new Exception('Database connection error', 500);
             }
             $river = pg_fetch_assoc($rivers);
-            $measures = pg_query($dbh, 'SELECT measuredate, height, stdev, hfm, cyclenumber FROM ' . $this->dbConnector->getSchema() . '.measures WHERE parentidentifier=\'' . pg_escape_string($identifier) . "' ORDER BY measuredate ASC");
+            $measures = pg_query($dbh, 'SELECT measuredate, height, stdev, hfm, cyclenumber, flag FROM ' . $this->dbConnector->getSchema() . '.measures WHERE parentidentifier=\'' . pg_escape_string($identifier) . "' ORDER BY measuredate ASC");
             if (!$measures) {
                 pg_close($dbh);
                 throw new Exception('Database connection error', 500);
@@ -280,13 +280,13 @@ class HyDreController extends RestoController {
          *  # (1): decimal year, (2): date = aaaa/mm/dd, (3): time = hh:mn
          *  # (4): height above surface of ref (m), (5): standard deviation from height (m),
          *  # (6): number high frequency measurements to compute the height, (7): cycle number
-         *  # undef values=999.999
+         *  # undef values=999.999, (8): flag
          *  #
          *  2008.5331 ; 2008/06/11 ; 16:59 ;    75.611 ;    1.426 ;    0 ;  ; 
          */
         while ($measure = pg_fetch_assoc($measures)) {
             list($date, $time) = explode('T', $this->decimalYearToDate($measure['measuredate']));
-            $content .= join(';', array($measure['measuredate'], str_replace('-', '/', $date), substr($time, 0, 5), $measure['height'], $measure['stdev'], $measure['hfm'], $measure['cyclenumber'])) . "\n";
+            $content .= join(';', array($measure['measuredate'], str_replace('-', '/', $date), substr($time, 0, 5), $measure['height'], $measure['stdev'], $measure['hfm'], $measure['cyclenumber'], $measure['flag'])) . "\n";
         }
 
         /*
@@ -338,7 +338,7 @@ class HyDreController extends RestoController {
                 throw new Exception('Database connection error', 500);
             }
             $lake = pg_fetch_assoc($lakes);
-            $measures = pg_query($dbh, 'SELECT measuredate, height, stdev, area, volume FROM ' . $this->dbConnector->getSchema() . '.measures WHERE parentidentifier=\'' . pg_escape_string($identifier) . "' ORDER BY measuredate ASC");
+            $measures = pg_query($dbh, 'SELECT measuredate, height, stdev, area, volume, flag FROM ' . $this->dbConnector->getSchema() . '.measures WHERE parentidentifier=\'' . pg_escape_string($identifier) . "' ORDER BY measuredate ASC");
             if (!$measures) {
                 pg_close($dbh);
                 throw new Exception('Database connection error', 500);
@@ -372,12 +372,12 @@ class HyDreController extends RestoController {
          *  # (1): decimal year, (2): date = yyyy/mm/dd, (3): time = hh:mm
          *  # (4): heigth above surface of ref (m), (5): standard deviation from heigth (m)
          *  # (6): area (km2), (7): volume with respect to volume of first date (km3)
-         * 
+         *  # (8): flag
          *  1992.738 ; 1992/09/26 ; 02:35 ;  341.28 ;    0.01 ;  ;  ; 
          */
         while ($measure = pg_fetch_assoc($measures)) {
             list($date, $time) = explode('T', $this->decimalYearToDate($measure['measuredate']));
-            $content .= join(';', array($measure['measuredate'], str_replace('-', '/', $date), substr($time, 0, 5), $measure['height'], $measure['stdev'], $measure['area'], $measure['volume'])) . "\n";
+            $content .= join(';', array($measure['measuredate'], str_replace('-', '/', $date), substr($time, 0, 5), $measure['height'], $measure['stdev'], $measure['area'], $measure['volume'], $measure['flag'])) . "\n";
         }
 
         /*

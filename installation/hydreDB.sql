@@ -225,7 +225,11 @@ CREATE TABLE hydre.measures (
 
         -- For rivers : NULL
         -- For lakes : -- data : (7)
-        volume                  INTEGER
+        volume                  INTEGER,
+
+        -- For rivers : -- data : (8)
+        -- For lakes : -- data : (8)
+        flag                  INTEGER
 );
 
 -- ============================================================

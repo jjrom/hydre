@@ -128,7 +128,7 @@ class HyDreResourceManager extends ResourceManager {
      *  # (1): decimal year, (2): date = aaaa/mm/dd, (3): time = hh:mn
      *  # (4): height above surface of ref (m), (5): standard deviation from height (m),
      *  # (6): number high frequency measurements to compute the height, (7): cycle number
-     *  # undef values=999.999
+     *  # undef values=999.999, (8): flag
      *  #
      *  2008.5331 ; 2008/06/11 ; 16:59 ;    75.611 ;    1.426 ;    0 ;  ; 
      *  2008.5602 ; 2008/06/21 ; 14:32 ;    76.072 ;    0.163 ;    0 ;  ; 
@@ -269,7 +269,7 @@ class HyDreResourceManager extends ResourceManager {
              *  # (1): decimal year, (2): date = aaaa/mm/dd, (3): time = hh:mn
              *  # (4): height above surface of ref (m), (5): standard deviation from height (m),
              *  # (6): number high frequency measurements to compute the height, (7): cycle number
-             *  # undef values=999.999
+             *  # undef values=999.999, (8): flag
              *  #
              *  2008.5331 ; 2008/06/11 ; 16:59 ;    75.611 ;    1.426 ;    0 ;  ; 
              *  ...etc...
@@ -292,7 +292,8 @@ class HyDreResourceManager extends ResourceManager {
                 'height' => trim($data[3]),
                 'stdev' => trim($data[4]),
                 'hfm' => trim($data[5]),
-                'cyclenumber' => trim($data[6]) ? trim($data[6]) : '0'
+                'cyclenumber' => trim($data[6]) ? trim($data[6]) : '0',
+                'flag' => trim($data[7]) ? trim($data[7]) : '0'
             );
             
             /*
@@ -346,21 +347,15 @@ class HyDreResourceManager extends ResourceManager {
      * 
      * File example
      * 
-     *  station=bra_bra_JA2_0053_01;river=Brahmaputra;basin=Brahmaputra;lat=26.7606;lon=93.4872;ref=GGM02C;ref_value=0.000;date=2011/11/15;type=operational;diff=restricted
-     *  #
-     *  # water height from satellite altimetry : Jason2 Track 0053
-     *  # corrections applied : solid earth tide, pole tide, ionospheric delay
-     *  #                       wet and dry tropospheric delay
-     *  # The heights are computed above a geoid given in the header (ref, ref_value (m))
-     *  #
-     *  # Data file format
-     *  # (1): decimal year, (2): date = aaaa/mm/dd, (3): time = hh:mn
-     *  # (4): height above surface of ref (m), (5): standard deviation from height (m),
-     *  # (6): number high frequency measurements to compute the height, (7): cycle number
-     *  # undef values=999.999
-     *  #
-     *  2008.5331 ; 2008/06/11 ; 16:59 ;    75.611 ;    1.426 ;    0 ;  ; 
-     *  2008.5602 ; 2008/06/21 ; 14:32 ;    76.072 ;    0.163 ;    0 ;  ; 
+     *  lake=balkhash;country=Kazakstan;basin=Balkhash;lat= 45.73;lon= 76.42;date=2012/12/12;first_date= 1992.738;last_date= 2011.861;type=operationnal;diff=public
+     *  
+     *  # data file format
+     *  # (1): decimal year, (2): date = yyyy/mm/dd, (3): time = hh:mm
+     *  # (4): heigth above surface of ref (m), (5): standard deviation from heigth (m)
+     *  # (6): area (km2), (7): volume with respect to volume of first date (km3)
+     *  # (8): flag
+     *  1992.738 ; 1992/09/26 ; 02:35 ;  341.28 ;    0.01 ;  ;  ; 
+     *  ...etc...
      * 
      * @param array $file - Above file split within an array by $this->create function (one line per array entry)
      */
@@ -491,7 +486,7 @@ class HyDreResourceManager extends ResourceManager {
              *  # (1): decimal year, (2): date = yyyy/mm/dd, (3): time = hh:mm
              *  # (4): heigth above surface of ref (m), (5): standard deviation from heigth (m)
              *  # (6): area (km2), (7): volume with respect to volume of first date (km3)
-             * 
+             *  # (8): flag
              *  1992.738 ; 1992/09/26 ; 02:35 ;  341.28 ;    0.01 ;  ;  ; 
              *  ...etc...
              */
@@ -512,7 +507,8 @@ class HyDreResourceManager extends ResourceManager {
                 'height' => trim($data[3]),
                 'stdev' => trim($data[4]),
                 'area' => trim($data[5]) ? trim($data[5]) : '0',
-                'cyclenumber' => trim($data[6]) ? trim($data[6]) : '0'
+                'cyclenumber' => trim($data[6]) ? trim($data[6]) : '0',
+                'flag' => trim($data[7]) ? trim($data[7]) : '0',
             );
             
             /*
