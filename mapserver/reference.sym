@@ -1,0 +1,23 @@
+symbolset
+	 symbol
+		 name point1
+		 antialias FALSE
+		 filled TRUE
+		 type ELLIPSE
+		 POINTS
+			 1 1
+		 END
+	 end
+         symbol
+                name trans
+                type vector
+                points
+                    0 4
+                    0 5
+                    1 4
+                    1 5
+                    -99 -99
+                    4 0
+                end
+         end
+end	 

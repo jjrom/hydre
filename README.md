@@ -103,16 +103,12 @@ Relancez Apache
 
 ### RESTo
 
-Editer le fichier $RESTO_TARGET/.htaccess et remplacer la ligne
-
-        RewriteBase /resto/
-
-par la ligne 
-
-        RewriteBase /hydre/
-
 Editer le fichier $RESTO_TARGET/resto/resto.ini afin de mettre à jour les mots de passe
 des comptes 'resto', 'sresto' et 'admin' [comme expliqué dans la procédure d'installation de RESTo] (https://github.com/jjrom/resto/blob/master/README.md#resto-configuration)
+
+Note : si l'alias Apache est different de /hydre/ (cf. configuration ci-dessus), il faut modifier en conséquence la règle
+'RewriteBase' du fichier $RESTO_TARGET/.htaccess 
+
 
 ### Insertion de la collection dans RESTo
 

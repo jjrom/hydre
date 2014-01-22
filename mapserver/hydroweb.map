@@ -1,0 +1,128 @@
+MAP
+    EXTENT -180.0 -90.0 180.0 90.0
+    IMAGECOLOR 255 255 255
+    IMAGEQUALITY 100
+    IMAGETYPE PNG
+    INTERLACE ON
+    SIZE 256 256
+    STATUS ON
+    TRANSPARENT ON
+    UNITS DD
+    DEBUG 0
+    FONTSET "/Users/jrom/Devel/hydroweb/mapserver/font.list"
+    SYMBOLSET "/Users/jrom/Devel/hydroweb/mapserver/reference.sym"
+    OUTPUTFORMAT
+        NAME "AGGPNG"
+        DRIVER "AGG/PNG"
+        EXTENSION "png"
+        MIMETYPE "image/png"
+        IMAGEMODE RGBA
+        TRANSPARENT ON
+        FORMATOPTION "TRANSPARENT=ON"
+    END
+    WEB
+      IMAGEPATH "/tmp/"
+      IMAGEURL "/"
+      METADATA
+        "ows_enable_request"   "*"
+        "wms_title"          "WMS proxy for Hydroweb"
+        "wms_onlineresource" "http://localhost/cgi-bin/mapserv?map=/Users/jrom/Devel/hydroweb/mapserver/hydroweb.map&"
+        "wms_srs"            "EPSG:4326 EPSG:3857"
+        "wms_feature_info_mime_type"    "text/html"
+      END
+    END
+    PROJECTION
+      "init=epsg:3857"
+    END
+    LAYER
+        name "basins"
+        data "/Users/jrom/Devel/hydroweb/mapserver/data/basins/GRDC_405_basins_from_mouth.shp"
+        
+        #labelitem "DRAINAGE"
+        PROJECTION
+            "init=epsg:4326"
+        END
+        status ON
+        type POLYGON
+        #LABELMAXSCALEDENOM 10000000
+        CLASS
+            STYLE
+                COLOR 255 255 0
+                OPACITY 20
+            END
+            STYLE
+                OUTLINECOLOR 255 255 255
+                WIDTH 2.0
+            END
+            #LABEL
+            #    angle auto
+            #    antialias true
+            #    color 0 0 0
+            #    outlinecolor 255 255 255
+            #    font arialbd
+            #    position CC
+            #    size 12
+            #    type TRUETYPE
+            #END
+        END
+    END
+    LAYER
+        name "rivers"
+        data "/Users/jrom/Devel/hydroweb/mapserver/data/rivers/GRDC_687_rivers.shp"
+        classitem "BAS_ID"
+        labelcache ON
+        labelitem "DRAINAGE"
+        maxfeatures 0
+        postlabelcache FALSE
+        PROJECTION
+            "init=epsg:4326"
+        END
+        sizeunits PIXELS
+        status ON
+        tolerance 3.0
+        toleranceunits PIXELS
+        transform TRUE
+        type LINE
+        LABELMAXSCALEDENOM 10000000
+        CLASS
+            name "bramaphutra"
+            expression "195"
+            color 255 0 0
+            size 4
+            LABEL
+                angle follow
+                antialias true
+                color 0 0 0
+                outlinecolor 255 255 255
+                font arialbd
+                #maxsize 256
+                #minsize 4
+                #outlinewidth 1
+                #partials TRUE
+                position CC
+                size 14
+                type TRUETYPE
+                #wrap ""
+            END
+        END
+        CLASS
+            color 255 255 0
+            outlinecolor 255 0 0
+            LABEL
+                angle follow
+                antialias FALSE
+                color 0 0 0
+                outlinecolor 255 255 255
+                font arialbd
+                #maxsize 256
+                #minsize 4
+                #outlinewidth 1
+                #partials TRUE
+                position CC
+                size 14
+                type TRUETYPE
+                #wrap ""
+            END
+        END
+    END
+END

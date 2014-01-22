@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On
+
+    # IMPORTANT : change this to match your installation 
+    RewriteBase /hydre/
+    
+    # Transmit authorization to PHP
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    
+    # Do not apply the rewrite rules to existing directories, files and/or links
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-l
+    
+    # Rewrite /a/b/c/etc. to index.php?RESToURL=/a/b/c/etc.
+    RewriteRule ^(.*)$ index.php?RESToURL=$1 [QSA,NC,L]
+
+</IfModule>
