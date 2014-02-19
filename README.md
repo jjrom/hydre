@@ -41,7 +41,7 @@ Installation de RESTo
 ### Téléchargement des sources
 
         # Positionnement de la variable $RESTO_HOME
-        export RESTO_HOME=$HYDRE_HOME/resto
+        export RESTO_HOME=/tmp/resto
         rm -Rf $RESTO_HOME
 
         # Récupération des sources à jour de RESTo 
@@ -49,10 +49,7 @@ Installation de RESTo
         
         # Positionnement de RESTo sur une version stable pour HyDre
         cd $RESTO_HOME
-        git checkout 9cfa72338a13432893e57a3b588c9c8b205895b9
-        
-        # Suppression du répertoire .git
-        rm -Rf $RESTO_HOME/.git $RESTO_HOME/.gitignore
+        git checkout 105ced028f1c06ab8a914689e940946f4107c233
         
 
 ### Installation de la base de données
@@ -72,20 +69,12 @@ Installation de HyDre
         $HYDRE_HOME/installation/hydreInstallDB.sh -g $HYDRE_HOME -s postgres -F
 
 
-Installation de mapshup
------------------------
-
-
-        # Compilation et installation de mapshup dans $HYDRE_TARGET/mapshup
-        $HYDRE_HOME/installation/build_mapshup.sh -a -t $HYDRE_TARGET -s $HYDRE_HOME
-
-
 Déploiement
 ===========
 
 Lancez le script de deploiement sur le repertoire cible $HYDRE_TARGET
 
-        $HYDRE_HOME/installation/deploy.sh -s $HYDRE_HOME -t $HYDRE_TARGET
+        $HYDRE_HOME/installation/deploy.sh -r $RESTO_HOME -s $HYDRE_HOME -t $HYDRE_TARGET
 
 
 Configuration
@@ -108,6 +97,12 @@ $HYDRE_TARGET par sa valeur) :
 Relancez Apache
 
         sudo apachectl restart
+
+### mapserver
+
+Editer le fichier $RESTO_HOME/mapserver/hydroweb.map et modifier les valeurs des champs suivants :
+* SHAPEPATH
+* wms_onlineresource
 
 ### RESTo
 

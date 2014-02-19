@@ -9,8 +9,9 @@ MAP
     TRANSPARENT ON
     UNITS DD
     DEBUG 0
-    FONTSET "/Users/jrom/Devel/hydroweb/mapserver/font.list"
-    SYMBOLSET "/Users/jrom/Devel/hydroweb/mapserver/reference.sym"
+    SHAPEPATH "/Users/jrom/Devel/hydre/mapserver/"
+    FONTSET "font.list"
+    SYMBOLSET "reference.sym"
     OUTPUTFORMAT
         NAME "AGGPNG"
         DRIVER "AGG/PNG"
@@ -26,7 +27,7 @@ MAP
       METADATA
         "ows_enable_request"   "*"
         "wms_title"          "WMS proxy for Hydroweb"
-        "wms_onlineresource" "http://localhost/cgi-bin/mapserv?map=/Users/jrom/Devel/hydroweb/mapserver/hydroweb.map&"
+        "wms_onlineresource" "http://localhost/cgi-bin/mapserv?map=/Users/jrom/Devel/hydre/mapserver/hydroweb.map&"
         "wms_srs"            "EPSG:4326 EPSG:3857"
         "wms_feature_info_mime_type"    "text/html"
       END
@@ -36,7 +37,7 @@ MAP
     END
     LAYER
         name "basins"
-        data "/Users/jrom/Devel/hydroweb/mapserver/data/basins/GRDC_405_basins_from_mouth.shp"
+        data "geodata/basins/GRDC_405_basins_from_mouth.shp"
         
         #labelitem "DRAINAGE"
         PROJECTION
@@ -68,7 +69,7 @@ MAP
     END
     LAYER
         name "rivers"
-        data "/Users/jrom/Devel/hydroweb/mapserver/data/rivers/GRDC_687_rivers.shp"
+        data "geodata/rivers/GRDC_687_rivers.shp"
         classitem "BAS_ID"
         labelcache ON
         labelitem "DRAINAGE"
@@ -84,27 +85,27 @@ MAP
         transform TRUE
         type LINE
         LABELMAXSCALEDENOM 10000000
-        CLASS
-            name "bramaphutra"
-            expression "195"
-            color 255 0 0
-            size 4
-            LABEL
-                angle follow
-                antialias true
-                color 0 0 0
-                outlinecolor 255 255 255
-                font arialbd
-                #maxsize 256
-                #minsize 4
-                #outlinewidth 1
-                #partials TRUE
-                position CC
-                size 14
-                type TRUETYPE
-                #wrap ""
-            END
-        END
+        #CLASS
+        #    name "bramaphutra"
+        #    expression "195"
+        #    color 255 0 0
+        #    size 4
+        #    LABEL
+        #        angle follow
+        #        antialias true
+        #        color 0 0 0
+        #        outlinecolor 255 255 255
+        #        font arialbd
+        #        #maxsize 256
+        #        #minsize 4
+        #        #outlinewidth 1
+        #        #partials TRUE
+        #        position CC
+        #        size 14
+        #        type TRUETYPE
+        #        #wrap ""
+        #    END
+        #END
         CLASS
             color 255 255 0
             outlinecolor 255 0 0

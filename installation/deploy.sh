@@ -1,10 +1,14 @@
 #!/bin/bash
 
+RESTO_HOME=""
+HYDRE_HOME=""
+HYDRE_TARGET=""
 # Paths are mandatory from command line
-usage="## HyDre deployment\n\n  Usage $0 -s <HYDRE_HOME> -t <HYDRE_TARGET>\n"
-while getopts "s:t:h" options; do
+usage="## HyDre deployment\n\n  Usage $0 -r <RESTO_HOME> -s <HYDRE_HOME> -t <HYDRE_TARGET>\n"
+while getopts "s:r:t:h" options; do
     case $options in
-        s ) SRCDIR=`echo $OPTARG`;;
+        r ) RESTO_HOME=`echo $OPTARG`;;
+        s ) HYDRE_HOME=`echo $OPTARG`;;
         t ) TARGETDIR=`echo $OPTARG`;;
         h ) echo -e $usage;;
         \? ) echo -e $usage
@@ -13,7 +17,12 @@ while getopts "s:t:h" options; do
             exit 1;;
     esac
 done
-if [ "$SRCDIR" = "" ]
+if [ "$RESTO_HOME" = "" ]
+then
+    echo -e $usage
+    exit 1
+fi
+if [ "$HYDRE_HOME" = "" ]
 then
     echo -e $usage
     exit 1
@@ -31,10 +40,12 @@ if [ -d "$TARGETDIR" ]; then
 fi
 
 mkdir $TARGETDIR
-cp -Rf $SRCDIR/resto/.htaccess $SRCDIR/resto/favicon.ico $SRCDIR/resto/index.php $SRCDIR/resto/css $SRCDIR/resto/js $SRCDIR/resto/resto $TARGETDIR
-echo ' ==> Deploy RESTo to $TARGETDIR directory'
-cp -Rf $SRCDIR/src/resto/HyDreController.php $TARGETDIR/resto/controllers/ && echo ' ==> Copy HyDreController to '$TARGETDIR'/resto/controllers/ directory'
-cp -Rf $SRCDIR/src/resto/HydreResourceManager.php $TARGETDIR/resto/modules/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/resto/modules/ directory'
-cp -Rf $SRCDIR/src/resto/resto.ini $TARGETDIR/resto/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/resto/ directory'
-cp -Rf $SRCDIR/src/resto/.htaccess $TARGETDIR/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/ directory'
-echo ' ==> Now, do not forget to check $TARGETDIR/resto/resto.ini configuration !'
+echo " ==> Deploy RESTo to $TARGETDIR directory"
+cp -Rf $RESTO_HOME/.htaccess $RESTO_HOME/favicon.ico $RESTO_HOME/index.php $RESTO_HOME/css $RESTO_HOME/js $RESTO_HOME/resto $TARGETDIR
+cp -Rf $HYDRE_HOME/src/resto/HyDreController.php $TARGETDIR/resto/controllers/ && echo ' ==> Copy HyDreController to '$TARGETDIR'/resto/controllers/ directory'
+cp -Rf $HYDRE_HOME/src/resto/HydreResourceManager.php $TARGETDIR/resto/modules/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/resto/modules/ directory'
+cp -Rf $HYDRE_HOME/src/resto/resto.ini $TARGETDIR/resto/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/resto/ directory'
+cp -Rf $HYDRE_HOME/src/resto/.htaccess $TARGETDIR/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/ directory'
+cp -Rf $HYDRE_HOME/src/mapshup/config.js $TARGETDIR/js/config/default/ && echo ' ==> Copy mapshup/config.js to '$TARGETDIR'/js/config/default/ directory'
+
+echo " ==> Now, do not forget to check $TARGETDIR/resto/resto.ini configuration !"

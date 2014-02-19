@@ -53,7 +53,7 @@ CREATE INDEX measures_parentidentifier_idx ON hydre.measures (parentidentifier);
 EOF
 
 # Insert basins
-shp2pgsql -d -W LATIN1 -s 4326 -I $HYDRE_HOME/installation/geodata/basins/GRDC_405_basins_from_mouth.shp basins | psql -d $DB -U $SUPERUSER
+shp2pgsql -d -W LATIN1 -s 4326 -I $HYDRE_HOME/mapserver/geodata/basins/GRDC_405_basins_from_mouth.shp basins | psql -d $DB -U $SUPERUSER
 psql -U $SUPERUSER -d $DB << EOF
 ALTER TABLE basins SET SCHEMA hydre;
 ALTER TABLE hydre.basins ADD COLUMN bbox VARCHAR(250);
