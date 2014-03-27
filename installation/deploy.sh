@@ -43,7 +43,7 @@ mkdir $TARGETDIR
 echo " ==> Deploy RESTo to $TARGETDIR directory"
 cp -Rf $RESTO_HOME/.htaccess $RESTO_HOME/favicon.ico $RESTO_HOME/index.php $RESTO_HOME/css $RESTO_HOME/js $RESTO_HOME/resto $TARGETDIR
 cp -Rf $HYDRE_HOME/src/resto/HyDreController.php $TARGETDIR/resto/controllers/ && echo ' ==> Copy HyDreController to '$TARGETDIR'/resto/controllers/ directory'
-cp -Rf $HYDRE_HOME/src/resto/HydreResourceManager.php $TARGETDIR/resto/modules/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/resto/modules/ directory'
+cp -Rf $HYDRE_HOME/src/resto/HyDreResourceManager.php $TARGETDIR/resto/modules/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/resto/modules/ directory'
 cp -Rf $HYDRE_HOME/src/resto/resto.ini $TARGETDIR/resto/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/resto/ directory'
 cp -Rf $HYDRE_HOME/src/resto/.htaccess $TARGETDIR/ && echo ' ==> Copy HyDreResourceManager to '$TARGETDIR'/ directory'
 cp -Rf $HYDRE_HOME/src/mapshup/config.js $TARGETDIR/js/config/default/ && echo ' ==> Copy mapshup/config.js to '$TARGETDIR'/js/config/default/ directory'

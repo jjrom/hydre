@@ -186,7 +186,9 @@ class HyDreController extends RestoController {
          * 
          */
         $resourceManager = new HyDreResourceManager($this);
-        $this->response = $resourceManager->create(getFiles(false));
+        $this->response = $resourceManager->create(getFiles(array(
+            'mimeType' => Resto::$contentTypes['html']
+        )));
         $this->responseStatus = 200;
         
     }
