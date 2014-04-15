@@ -49,7 +49,7 @@ Installation de RESTo
         
         # Positionnement de RESTo sur une version stable pour HyDre
         cd $RESTO_HOME
-        git checkout 05e7af48090fda415ba6b45eb129ba9abc2606cf
+        git checkout 1710db6f82b521b65568880c6146853aeef18912
         
 
 ### Installation de la base de données

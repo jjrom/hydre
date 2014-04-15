@@ -10,19 +10,18 @@
      */
     c["general"].rootUrl = 'http://localhost/hydre/';
     
-    
-    
     /*
      * !! DO NOT EDIT UNDER THIS LINE !!
      */
     c["general"].serverRootUrl = null;
     c["general"].proxyUrl = null;
     c["general"].confirmDeletion = false;
-    c["general"].themePath = "/js/mapshup/theme/default";
+    c["general"].themePath = "/js/externals/mapshup/theme/default";
+    c["i18n"].path = "/js/externals/mapshup/i18n";
     c["general"].displayContextualMenu = true;
     c["general"].displayCoordinates = true;
     c["general"].displayScale = false;
-    c["general"].overviewMap = "closed";
+    c["general"].overviewMap = "none";
     c['general'].enableHistory = false;
     c["general"].timeLine = {
         enable: false
