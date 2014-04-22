@@ -5,6 +5,8 @@ HyDre - Hydroweb Distribution server - est l'application de distribution des sé
 
 L'application HyDre est développé par le [cnes] (http://www.cnes.fr). Elle repose sur les applications [RESTo] (http://github.com/jjrom/resto), [mapshup] (http://github.com/jjrom/mapshup) et [iTag] (http://github.com/jjrom/itag)
 
+Voir la [présentation de HyDre sur slideshare](http://fr.slideshare.net/GasperiJerome/20140422-hydre-toulouse)
+
 Installation
 ============
 
@@ -49,7 +51,7 @@ Installation de RESTo
         
         # Positionnement de RESTo sur une version stable pour HyDre
         cd $RESTO_HOME
-        git checkout 1710db6f82b521b65568880c6146853aeef18912
+        git checkout 510deb126fc9b1309468bdad4790d0641349bee3
         
 
 ### Installation de la base de données
@@ -107,7 +109,7 @@ Editer le fichier $RESTO_HOME/mapserver/hydroweb.map et modifier les valeurs des
 ### RESTo
 
 Editer le fichier $RESTO_TARGET/resto/resto.ini afin de mettre à jour les mots de passe
-des comptes 'resto', 'sresto' et 'admin' [comme expliqué dans la procédure d'installation de RESTo] (https://github.com/jjrom/resto/blob/master/README.md#resto-configuration)
+des comptes 'resto' et 'sresto' [comme expliqué dans la procédure d'installation de RESTo] (https://github.com/jjrom/resto/blob/master/README.md#resto-configuration)
 
 Note : si l'alias Apache est different de /hydre/ (cf. configuration ci-dessus), il faut modifier en conséquence la règle
 'RewriteBase' du fichier $RESTO_TARGET/.htaccess 
