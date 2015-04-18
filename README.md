@@ -46,8 +46,8 @@ Installation de RESTo
         export RESTO_HOME=/tmp/resto
         rm -Rf $RESTO_HOME
 
-        # Récupération des sources à jour de RESTo 
-        git clone https://github.com/jjrom/resto.git/ $RESTO_HOME
+        # Récupération des sources à jour de RESTo v1 
+        git clone https://github.com/jjrom/resto-deprecated.git/ $RESTO_HOME
         
         # Positionnement de RESTo sur une version stable pour HyDre
         cd $RESTO_HOME
@@ -57,9 +57,9 @@ Installation de RESTo
 ### Installation de la base de données
 
 Effectuez UNIQUEMENT les étapes suivantes de la [procédure d'installation de RESTo] (https://github.com/jjrom/resto/blob/master/README.md) :
-* Installation de la [base de données] (https://github.com/jjrom/resto/blob/master/README.md#install-resto-database)
-* Installation du [Gazetteer] (https://github.com/jjrom/resto/blob/master/README.md#install-gazetteer)
-* Installation de [iTag] (https://github.com/jjrom/resto/blob/master/README.md#install-itag-optional)
+* Installation de la [base de données] (https://github.com/jjrom/resto-deprecated/blob/master/README.md#install-resto-database)
+* Installation du [Gazetteer] (https://github.com/jjrom/resto-deprecated/blob/master/README.md#install-gazetteer)
+* Installation de [iTag] (https://github.com/jjrom/resto-deprecated/blob/master/README.md#install-itag-optional)
 
 
 Installation de HyDre
